@@ -35,23 +35,36 @@ class playlist_data():
             except KeyError:
                 print(f'Input exceeds playlist count. Try again.')
     def grab_vidoes(self):
-        pl_item_request = self.youtube.playlistItems().list(
-            part = 'contentDetails',
-            playlistId = self.playlist_selection, #Playlist that was selected
-            maxResults = 50, # Get 50 Results 
-        )
-        pl_response = pl_item_request.execute() 
-
-        for count,item in enumerate (pl_response['items']):
-            video_id = item['contentDetails']['videoId'] #Video_id from playlist
-            req_vids = self.youtube.videos().list( #request for title 
-                part = 'snippet',
-                id = video_id  
+        nextPageToken = None
+        count = 0
+        while True:
+            
+            pl_item_request = self.youtube.playlistItems().list(
+                part = 'contentDetails',
+                playlistId = self.playlist_selection, #Playlist that was selected
+                maxResults = 50, # Get 50 Results 
+                pageToken = nextPageToken
             )
-            vid_request = req_vids.execute() #Executes request for video information
-            vid_title = vid_request['items'][0]['snippet']['title'] # Sets video title to variable   
-            print(f'Adding {count} - {vid_title} to download list.')
-            self.videos[count] = [vid_title,video_id]
+            pl_response = pl_item_request.execute() 
+
+            for item in pl_response['items']:
+                video_id = item['contentDetails']['videoId'] #Video_id from playlist
+                req_vids = self.youtube.videos().list( #request for title 
+                    part = 'snippet',
+                    id = video_id  
+                )
+                vid_request = req_vids.execute() #Executes request for video information
+                try:
+                    vid_title = vid_request['items'][0]['snippet']['title'] # Sets video title to variable   
+                except: 
+                    print(f'{count} - Video Deleted or privated. ')
+                print(f'Adding {count} - {vid_title} to download list.')
+                self.videos[count] = [vid_title,video_id]
+                count += 1
+            
+            nextPageToken = pl_response.get('nextPageToken')
+            if not nextPageToken: #Breaks while loop no more songs in playlist.
+                break
     def download_videos(self):
         pass
 

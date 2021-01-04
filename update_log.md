@@ -23,6 +23,18 @@
     - Will work on NextPageToken to pull all playlists songs.
     - Will implement downloading playlist thorugh videoId using Youtube DL 
 
+## ```Update Version 0.0.4```
+### 1/4/20
+
+- Added Solution to pull whole playlist. 
+
+
+
+
+
+
+
+
 
 
 
