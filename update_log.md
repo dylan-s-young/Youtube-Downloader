@@ -9,10 +9,20 @@
 - Added playlist_data class in youtube_grab.py 
 - Added main.py
 
-
 ## ```Update Version 0.0.2```
 ### 1/3/20
 - Added two methods to youtube_grap.py
 - Minor tweaks to main.py
+
+## ```Update Version 0.0.3```
+### 1/4/20
+
+- Added grab_videos() method to youtube_grab.py  
+- Added options() method to main.py
+- Notes: 
+    - Will work on NextPageToken to pull all playlists songs.
+    - Will implement downloading playlist thorugh videoId using Youtube DL 
+
+
 
 
