@@ -26,7 +26,19 @@
 ## ```Update Version 0.0.4```
 ### 1/4/20
 
-- Added Solution to pull whole playlist. 
+- Added Solution to pull whole playlist.
+
+## ```Update Version 0.0.5```
+### 1/6/20
+
+- Added Downloading mp3 to methods (WILL ADD VIDEOS). 
+- Added is_dir to test.py. (Will ask for directory path.)
+- Added download.py. (Contains functions for donwloading)
+- Adjustments to main.py
+- Notes: 
+    - Will add downloading mp4s. 
+
+
 
 
 

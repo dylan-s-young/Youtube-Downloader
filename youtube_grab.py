@@ -2,6 +2,7 @@ from credentials import api_key
 from apiclient.discovery import build
 from credentials import api_key
 from test import *
+from download import *
 
 class playlist_data():
     def __init__(self):
@@ -9,13 +10,15 @@ class playlist_data():
         self.key = api_key # API Key From Youtube 
         self.youtube = build('youtube','v3',developerKey = api_key)
         self.playlist_selection = "" # Stores Playlist ID
-        self.videos = {} #Stores Videos - Key = (n+1) : Value = 0:Title - 1: Videoid
+        self.videos = {} #Stores Videos - Key = (n+1) : Value ==  0:Title, 1: Videoid
+        self.dir = '' #Stores Directory where videos will be installed. 
         
     
     def get_playlist(self,user_id):
         pl_request = self.youtube.playlists().list(
         part = 'contentDetails, snippet',
-        channelId = user_id
+        channelId = user_id,
+        maxResults = 50
         )   
         try:
             pl_response = pl_request.execute()
@@ -63,9 +66,20 @@ class playlist_data():
                 count += 1
             
             nextPageToken = pl_response.get('nextPageToken')
-            if not nextPageToken: #Breaks while loop no more songs in playlist.
+            if not nextPageToken: #Breaks while loop when there are no more songs in playlist.
                 break
-    def download_videos(self):
-        pass
+    def download_videos(self): #WILL COME BACK TO THIS LATER
+        try: 
+            self.dir = input(f'Please Enter directory where you want these videos installed.')
+        except: 
+            pass
+    
+    
+    
+    def download_mp3(self):
+        self.dir = is_path()
+        print(f'Starting the Download')
+        audio_download(self.videos,self.dir)
 
+    
     
