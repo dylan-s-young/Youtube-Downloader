@@ -47,6 +47,16 @@
 - Notes:
     - Working on single downloads for mp3/ Video Downloads 
 
+## ```Update Version 0.0.7```
+### 1/8/20
+
+- Added support for single downloads mp3 
+- Tweaks to main.py
+- Added vid_id_exist to youtube_grab.py 
+- Changed download.py to support single/playlist mp3 downloads.
+- Notes: 
+    - mp4 support next update. 
+    - Still testing single downloads for mp3. 
 
 
 

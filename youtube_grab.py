@@ -78,10 +78,23 @@ class playlist_data():
     
     def download_mp3(self):
         print(f'Starting the Download')
-        audio_download(self.videos,self.dir) #From Download.py
+        audio_download(self.videos,self.dir,1) #From Download.py 
     
     def set_directory(self): #method to change directory
         self.dir = is_path()
+    def vid_id_exist(self,vid_id): # Test if video_id exists (used for single downloads.)
+        while True:
+            try:
+                req_vids = self.youtube.videos().list(
+                    part = 'snippet',
+                    id = vid_id
+                )
+                vid_request = req_vids.execute()
+                vid_title = vid_request['items'][0]['snippet']['title']
+                break
+            except:
+                vid_id = input(f'Video_id was wrong. Please input again.\n')
 
+        return vid_id, vid_title
     
     

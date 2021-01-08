@@ -3,6 +3,7 @@ import json
 from youtube_grab import *
 from credentials import api_key
 from test import *
+from download import *
 #UCdnF1w8xarlWwpCNSq260LQ - YT Channel
 #UCCbF-Etrc4jivW7CIxeO5lA - YT Channel 
 def print_startup():
@@ -12,10 +13,11 @@ def print_startup():
 
 def options():
     user_input = input(f'What do you want to do?\n'
-            f'A - Download playlist to audio folder.\n'
-            f'B - Download videos to video folder.\n'
+            f'A - Download playlist mp3 to folder.\n'
+            f'B - Download Playlist mp4 to folder.\n'
             f'C - Change Directory.\n'
             f'D - Download Individual Song\n'
+            f'E - Download Individual Video\n'
             f'Q - Quit\n')
     while True:
         if user_input == 'A':
@@ -31,7 +33,10 @@ def options():
             user.set_directory()
             options()
         elif user_input == 'D':
-            pass
+            vid_id, vid_title = user.vid_id_exist(input(f'Please input video_id to download your mp3. e.g. https://www.youtube.com/watch?v=6M5jL34kv9s has the video_id: 6M5jL34kv9s \n'))
+            print(f'Downloading {vid_title} to your specified directory.')
+            audio_download(vid_id,user.dir,2)
+            options()
         elif user_input == 'Q':
             quit()
         else: 
