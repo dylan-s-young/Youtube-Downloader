@@ -12,9 +12,10 @@ class playlist_data():
         self.playlist_selection = "" # Stores Playlist ID
         self.videos = {} #Stores Videos - Key = (n+1) : Value ==  0:Title, 1: Videoid
         self.dir = '' #Stores Directory where videos will be installed. 
-        
+        self.user_id = ''
     
-    def get_playlist(self,user_id):
+    def get_playlist(self, user_id):
+        self.user_id = user_id
         pl_request = self.youtube.playlists().list(
         part = 'contentDetails, snippet',
         channelId = user_id,
@@ -58,12 +59,13 @@ class playlist_data():
                 )
                 vid_request = req_vids.execute() #Executes request for video information
                 try:
-                    vid_title = vid_request['items'][0]['snippet']['title'] # Sets video title to variable   
+                    vid_title = vid_request['items'][0]['snippet']['title'] # Sets video title to variable
+                    print(f'Adding {count} - {vid_title} to download list.')
+                    self.videos[count] = [vid_title,video_id]
+                    count += 1    
                 except: 
-                    print(f'{count} - Video Deleted or privated. ')
-                print(f'Adding {count} - {vid_title} to download list.')
-                self.videos[count] = [vid_title,video_id]
-                count += 1
+                    print(f'Video Deleted or privated. ')
+                
             
             nextPageToken = pl_response.get('nextPageToken')
             if not nextPageToken: #Breaks while loop when there are no more songs in playlist.
@@ -74,12 +76,12 @@ class playlist_data():
         except: 
             pass
     
-    
-    
     def download_mp3(self):
-        self.dir = is_path()
         print(f'Starting the Download')
-        audio_download(self.videos,self.dir)
+        audio_download(self.videos,self.dir) #From Download.py
+    
+    def set_directory(self): #method to change directory
+        self.dir = is_path()
 
     
     

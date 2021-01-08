@@ -21,9 +21,9 @@ def is_path():
     dir_input = input(f'Where do you want the files downloaded.\n')
     while True:
         if path.isdir(dir_input) == True:
-            print(f'Directory exists.')
+            print(f'Directory exists. Path set.')
             break
         else:
-            dir_input = input(f'That directory is invalid. You can check on terminal with command "pwd" or on CMD with "dir".\n')
+            dir_input = input(f'That directory is invalid. You can check a directory on terminal with command "pwd" or on CMD with "dir".\n')
     return dir_input
 

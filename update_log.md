@@ -1,6 +1,6 @@
-# ****Youtube to Spotify Converter****
+# ****Youtube Playlist Converter****
 
-### ***Objective: Convert Songs in a playlist on Youtube to Folder***
+### ***Objective: Convert Songs or videos in a playlist on Youtube to Folder***
 
 
 ## ```Update Version 0.0.1```
@@ -37,6 +37,15 @@
 - Adjustments to main.py
 - Notes: 
     - Will add downloading mp4s. 
+
+## ```Update Version 0.0.6```
+### 1/7/20
+
+- Tweaks to youtube_grab.py
+- Minor tweaks to download.py
+- Rewrote main.py
+- Notes:
+    - Working on single downloads for mp3/ Video Downloads 
 
 
 
