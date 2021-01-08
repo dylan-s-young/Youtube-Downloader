@@ -14,7 +14,7 @@ def print_startup():
 def options():
     user_input = input(f'What do you want to do?\n'
             f'A - Download playlist mp3 to folder.\n'
-            f'B - Download Playlist mp4 to folder.\n'
+            f'B - Download Playlist mkv to folder.\n'
             f'C - Change Directory.\n'
             f'D - Download Individual Song\n'
             f'E - Download Individual Video\n'
@@ -33,9 +33,14 @@ def options():
             user.set_directory()
             options()
         elif user_input == 'D':
-            vid_id, vid_title = user.vid_id_exist(input(f'Please input video_id to download your mp3. e.g. https://www.youtube.com/watch?v=6M5jL34kv9s has the video_id: 6M5jL34kv9s \n'))
-            print(f'Downloading {vid_title} to your specified directory.')
+            vid_id, vid_title = user.vid_id_exist(input(f'Please input video_id to download your mp3. e.g. https://www.youtube.com/watch?v=6M5jL34kv9s has the video_id: 6M5jL34kv9s\n'))
+            print(f'Downloading {vid_title} as mp3 to your specified directory.')
             audio_download(vid_id,user.dir,2)
+            options()
+        elif user_input == 'E':
+            vid_id, vid_title = user.vid_id_exist(input(f'Please input video_id to download your mkv. e.g. https://www.youtube.com/watch?v=6M5jL34kv9s has the video_id: 6M5jL34kv9s\n'))
+            print(f'Downloading {vid_title} as mkv to your specified directory.')
+            video_download(vid_id,user.dir,2)
             options()
         elif user_input == 'Q':
             quit()

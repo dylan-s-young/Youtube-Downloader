@@ -57,9 +57,14 @@
 - Notes: 
     - mp4 support next update. 
     - Still testing single downloads for mp3. 
-
-
-
+## ```Update Version 0.0.8```
+### 1/8/20
+- Added Single Video download .mkv support 
+- Added video_download method to download.py
+- Notes: 
+    - Will test Windows OS
+    - Adding playlist video downloads next. 
+    - In the future, will look to just require link to download instead of video_id ('Currently might be confusing.')
 
 
 

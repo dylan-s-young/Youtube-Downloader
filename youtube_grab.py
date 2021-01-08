@@ -70,14 +70,11 @@ class playlist_data():
             nextPageToken = pl_response.get('nextPageToken')
             if not nextPageToken: #Breaks while loop when there are no more songs in playlist.
                 break
-    def download_videos(self): #WILL COME BACK TO THIS LATER
-        try: 
-            self.dir = input(f'Please Enter directory where you want these videos installed.')
-        except: 
-            pass
+    def download_videos(self): 
+        print(f'Starting Download')
     
     def download_mp3(self):
-        print(f'Starting the Download')
+        print(f'Starting Download')
         audio_download(self.videos,self.dir,1) #From Download.py 
     
     def set_directory(self): #method to change directory

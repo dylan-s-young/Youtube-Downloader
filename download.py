@@ -42,5 +42,18 @@ def audio_download(audio_list,location_mp3,version):
         except:
             print(f'Error Occured when downloading your requested') 
 
-def video_dowload():
-    pass
+def video_download(video_list,location_mkv,version):
+    location = location_mkv + '/%(title)s.%(ext)s'
+    if version == 1: 
+        pass
+    else: 
+        link = ['https://youtube.com/watch?v=' + video_list]
+        ydl_opts = {
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=webm]/bestvideo+bestaudio',
+            'outtmpl': location,
+            'postprocessors': [{
+            'key': 'FFmpegVideoConvertor',
+            'preferedformat': 'mkv'}],
+        }
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download(link)
