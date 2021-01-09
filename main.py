@@ -13,9 +13,9 @@ def print_startup():
 
 def options():
     user_input = input(f'What do you want to do?\n'
-            f'A - Download playlist mp3 to folder.\n'
-            f'B - Download Playlist mkv to folder.\n'
-            f'C - Change Directory.\n'
+            f'A - Download playlist as mp3 to folder\n'
+            f'B - Download Playlist as mkv to folder\n'
+            f'C - Change Directory\n'
             f'D - Download Individual Song\n'
             f'E - Download Individual Video\n'
             f'Q - Quit\n')
@@ -24,11 +24,16 @@ def options():
             user_id = input(f'Please input channelID. Refer to instructions on github.\n')
             user.get_playlist(user_id)
             user.select_playlist()
-            user.grab_vidoes()
+            user.grab_videos()
             user.download_mp3()
             options()
         elif user_input == 'B':
-            pass 
+            user_id = input(f'Please in put channelID. Refer to instructions on github.\n')
+            user.get_playlist(user_id)
+            user.select_playlist()
+            user.grab_videos()
+            user.download_mkv()
+            options()
         elif user_input == 'C':
             user.set_directory()
             options()

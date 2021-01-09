@@ -57,6 +57,7 @@
 - Notes: 
     - mp4 support next update. 
     - Still testing single downloads for mp3. 
+
 ## ```Update Version 0.0.8```
 ### 1/8/20
 - Added Single Video download .mkv support 
@@ -66,11 +67,12 @@
     - Adding playlist video downloads next. 
     - In the future, will look to just require link to download instead of video_id ('Currently might be confusing.')
 
-
-
-
-
-
+## ```Update Version 0.0.9```
+### 1/8/20
+- Added playlist video download .mkv support 
+- tweaks youtube_grab.py
+- Notes: 
+    - Git cloning repo and testing on Windows OS. (Next update should fix problems.)
 
 
 

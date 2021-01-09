@@ -38,7 +38,7 @@ class playlist_data():
                 break
             except KeyError:
                 print(f'Input exceeds playlist count. Try again.')
-    def grab_vidoes(self):
+    def grab_videos(self):
         nextPageToken = None
         count = 0
         while True:
@@ -70,9 +70,9 @@ class playlist_data():
             nextPageToken = pl_response.get('nextPageToken')
             if not nextPageToken: #Breaks while loop when there are no more songs in playlist.
                 break
-    def download_videos(self): 
+    def download_mkv(self): 
         print(f'Starting Download')
-    
+        video_download(self.videos,self.dir,1)
     def download_mp3(self):
         print(f'Starting Download')
         audio_download(self.videos,self.dir,1) #From Download.py 
