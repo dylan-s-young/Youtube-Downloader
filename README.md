@@ -1,6 +1,7 @@
 # ****Youtube to Playlist Converter****
-https://user-images.githubusercontent.com/54921144/104539758-2a954300-55ec-11eb-80b1-f0db3ffd7639.png
-## ***Objective: Convert Songs in a playlist on Youtube to Folder***
+<img width="539" alt="youtube_downloader" src="https://user-images.githubusercontent.com/54921144/104541713-2f5bf600-55f0-11eb-902f-b6461d5524ba.png">
+
+## ****Objective**** : Convert Songs in a playlist on Youtube to Folder***
 
 ### Built With
 
