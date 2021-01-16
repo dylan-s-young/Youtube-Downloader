@@ -30,6 +30,12 @@
     
     "pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib"
     ```
+5. Install ffmpeg onto your system.
+    ```
+    Mac: brew install ffmpeg  
+    ```
+    Windows: [Youtube How-To](https://www.youtube.com/watch?v=qjtmgCb8NcE&ab_channel=LinuxLeech)
+    
 ### ****Executing****
 1. Run main.py in command line & follow directions. 
     ```py
